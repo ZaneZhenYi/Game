@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>cn.zzgame.test</groupId>
+  <artifactId>JavaTest</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <name>JavaTest</name>
+  <url>http://maven.apache.org</url>
+  
+  <build>
+	<plugins>
+	<!-- 设置jar包可执行，程序入口是：mainClass配置的类main方法
+	<plugin>
+	  	<groupId>org.apache.maven.plugins</groupId>
+	  	<artifactId>maven-shade-plugin</artifactId>
+	  	<version>2.4.3</version>
+	  	<executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>com.zane.test.App</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+	  </plugin> -->
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-compiler-plugin</artifactId>
+		<version>3.5.1</version>
+		<configuration>
+		  <source>1.8</source>
+		  <target>1.8</target>
+		  <encoding>UTF-8</encoding>
+		</configuration>
+	  </plugin>
+	  <!--不把配置文件打进包里
+	  <plugin>  
+    	<groupId>org.apache.maven.plugins</groupId>  
+    	<artifactId>maven-jar-plugin</artifactId>  
+    	<version>2.5</version>  
+    	<configuration>  
+          <excludes>
+			<exclude>*.properties</exclude>
+		  </excludes> 
+        </configuration>  
+      </plugin> -->
+	</plugins>
+	<resources>  
+      <resource>  
+        <directory>src/main/resources</directory>  
+      </resource>  
+    </resources>  
+    <testResources>  
+      <testResource>  
+        <directory>src/test/resources</directory>  
+      </testResource>  
+    </testResources>
+  </build>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+	<dependency>
+	    <groupId>io.netty</groupId>
+	    <artifactId>netty-all</artifactId>
+	    <version>5.0.0.Alpha2</version>
+	</dependency>
+
+    <!-- http://mvnrepository.com/artifact/org.msgpack/msgpack -->
+	<dependency>
+      <groupId>org.msgpack</groupId>
+      <artifactId>msgpack</artifactId>
+      <version>0.6.12</version>
+	</dependency>
+  </dependencies>
+</project>
